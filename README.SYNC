@@ -1,3 +1,4 @@
+==CROSS COMPILER==
 I embarked upon modifying the omxplayer source code when I realized that
 the one thing I actually wanted, synchronized playing, was missing, and
 it was near impossible to recreate without altering the source code. Git
@@ -56,6 +57,28 @@ then there should be enough information in the above to tailor it to
 your needs. You just might lose a few nights of sleep trying to debug
 the Makefile, Makefile.include and Makefile.ffmpeg files.
 
+==USAGE==
+I am still editing the program, so I can not guarantee that every permutation of the command line options will work, but I can guarantee that the below works. The first line is issued on the server, while the second line is issued N times on the N clients. Note that the total number of raspis is N + 1.
+
+omxplayer --sync-verbose --sync-server --sync-num-clients <N> --server-port <PORT> <FILE>
+
+omxplayer --sync-verbose --sync-client --server-address <SERVER> --server-port <PORT> <FILE>
+
+They do not have to be issued in any particular order, but the program
+will not launch until all N clients have started.
+
+==ISSUES==
+- Ctrl+C doesn't exit gracefully (tcp message sending/receiving breaks down)
+- Still notice an audio drift after 2 hours. Perhaps jitter delta is too small
+
+==TODO==
+- Add command line options for jitter and threshold period
+- Broadcast file path to all clients (that way only server needs to be told of file path).
+- Allow playlist functionality (ie. 10 movies in a text file)
+- Determine if starting with audio offset is still supported. 
+- 'Buffer' loading of next video in playlist
+
+==APPOLOGIES==
 Final word of disclaimer, I am NOT an advanced C/C++ programmer. I
 appologize for this, and ask that better programmers go through and fix
 the code for me.
