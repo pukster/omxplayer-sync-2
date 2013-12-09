@@ -1,0 +1,35 @@
+USE_NFS=1
+FLOAT=hard
+
+ifeq ($(USE_NFS), 1)
+BUILDROOT :=/mnt/CYBRAN/$(RASPI)
+SDKSTAGE :=$(BUILDROOT)
+TARGETFS :=$(BUILDROOT)
+TOOLCHAIN :=/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian
+HOST :=arm-linux-gnueabihf
+SYSROOT :=$(BUILDROOT)
+else
+BUILDROOT :=/mnt/UEF/CYBRAN
+SDKSTAGE :=/mnt/UEF/CYBRAN
+TARGETFS :=/mnt/UEF/CYBRAN
+TOOLCHAIN :=/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian
+HOST :=arm-linux-gnueabihf
+SYSROOT :=$(TOOLCHAIN)/tools/arm-bcm2708hardfp-linux-gnueabi/sysroot/
+endif
+JOBS=8
+CFLAGS := -isystem$(PREFIX)/include
+CXXFLAGS := $(CFLAGS)
+CPPFLAGS := $(CFLAGS)
+LDFLAGS := -L$(BUILDROOT)/lib
+LD := $(TOOLCHAIN)/bin/$(HOST)-ld --sysroot=$(SYSROOT)
+CC := $(TOOLCHAIN)/bin/$(HOST)-gcc --sysroot=$(SYSROOT) -Wall
+CXX := $(TOOLCHAIN)/bin/$(HOST)-g++ --sysroot=$(SYSROOT) -Wall
+OBJDUMP := $(TOOLCHAIN)/bin/$(HOST)-objdump
+RANLIB := $(TOOLCHAIN)/bin/$(HOST)-ranlib
+STRIP := $(TOOLCHAIN)/bin/$(HOST)-strip
+AR := $(TOOLCHAIN)/bin/$(HOST)-ar
+CXXCP := $(CXX) -E
+PATH := $(PREFIX)/bin:$(BUILDROOT)/output/host/usr/bin:$(PATH)
+CFLAGS += -pipe -mfloat-abi=$(FLOAT) -mcpu=arm1176jzf-s -fomit-frame-pointer -mabi=aapcs-linux -mtune=arm1176jzf-s -mfpu=vfp -Wno-psabi -mno-apcs-stack-check -O3 -mstructure-size-boundary=32 -mno-sched-prolog
+LDFLAGS += -L$(SDKSTAGE)/lib -L$(SDKSTAGE)/usr/lib -L$(SDKSTAGE)/usr/lib/omxplayer -L$(SDKSTAGE)/opt/vc/lib -L$(SDKSTAGE)/usr/lib/arm-linux-gnueabihf
+INCLUDES += -isystem$(SDKSTAGE)/usr/include -isystem$(SDKSTAGE)/usr/include/arm-linux-gnueabihf -isystem$(SDKSTAGE)/opt/vc/include -isystem$(SYSROOT)/usr/include -isystem$(SDKSTAGE)/opt/vc/include/interface/vcos/pthreads -isystem$(SDKSTAGE)/usr/include/freetype2 -isystem$(SDKSTAGE)/usr/include/libavcodec -isystem$(SDKSTAGE)/opt/vc/include/interface/vmcs_host/linux -isystem$(SDKSTAGE)/usr/include/dbus-1.0 -isystem$(SDKSTAGE)/usr/lib/arm-linux-gnueabihf/dbus-1.0/include/

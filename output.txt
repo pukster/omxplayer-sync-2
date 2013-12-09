@@ -1,0 +1,229 @@
+bash gen_version.sh > version.h 
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/arm-linux-gnueabihf-g++ --sysroot=/mnt/CYBRAN -Wall -isystem/include -pipe -mfloat-abi=hard -mcpu=arm1176jzf-s -fomit-frame-pointer -mabi=aapcs-linux -mtune=arm1176jzf-s -mfpu=vfp -Wno-psabi -mno-apcs-stack-check -O3 -mstructure-size-boundary=32 -mno-sched-prolog -std=c++0x -D__STDC_CONSTANT_MACROS -D__STDC_LIMIT_MACROS -DTARGET_POSIX -DTARGET_LINUX -fPIC -DPIC -D_REENTRANT -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64 -DHAVE_CMAKE_CONFIG -D__VIDEOCORE4__ -U_FORTIFY_SOURCE -Wall -DHAVE_OMXLIB -DUSE_EXTERNAL_FFMPEG  -DHAVE_LIBAVCODEC_AVCODEC_H -DHAVE_LIBAVUTIL_OPT_H -DHAVE_LIBAVUTIL_MEM_H -DHAVE_LIBAVUTIL_AVUTIL_H -DHAVE_LIBAVFORMAT_AVFORMAT_H -DHAVE_LIBAVFILTER_AVFILTER_H -DHAVE_LIBSWRESAMPLE_SWRESAMPLE_H -DOMX -DOMX_SKIP64BIT -ftree-vectorize -DUSE_EXTERNAL_OMX -DTARGET_RASPBERRY_PI -DUSE_EXTERNAL_LIBBCM_HOST -isystem/mnt/CYBRAN/usr/include -isystem/mnt/CYBRAN/usr/include/arm-linux-gnueabihf -isystem/mnt/CYBRAN/opt/vc/include -isystem/mnt/CYBRAN/usr/include -isystem/mnt/CYBRAN/opt/vc/include/interface/vcos/pthreads -isystem/mnt/CYBRAN/usr/include/freetype2 -isystem/mnt/CYBRAN/usr/include/libavcodec -isystem/mnt/CYBRAN/opt/vc/include/interface/vmcs_host/linux -isystem/mnt/CYBRAN/usr/include/dbus-1.0 -isystem/mnt/CYBRAN/usr/lib/arm-linux-gnueabihf/dbus-1.0/include/ -I./ -Ilinux -Iffmpeg_compiled/usr/local/include/ -Iffmpeg/libavutil/ -c utils/log.cpp -o utils/log.o -Wno-deprecated-declarations
+In file included from /mnt/CYBRAN/usr/include/arm-linux-gnueabihf/sys/stat.h:107:0,
+                 from linux/PlatformDefs.h:37,
+                 from ./system.h:227,
+                 from utils/log.cpp:22:
+/mnt/CYBRAN/usr/include/arm-linux-gnueabihf/bits/stat.h:73:21: error: field ‘st_atim’ has incomplete type
+/mnt/CYBRAN/usr/include/arm-linux-gnueabihf/bits/stat.h:74:21: error: field ‘st_mtim’ has incomplete type
+/mnt/CYBRAN/usr/include/arm-linux-gnueabihf/bits/stat.h:75:21: error: field ‘st_ctim’ has incomplete type
+/mnt/CYBRAN/usr/include/arm-linux-gnueabihf/bits/stat.h:119:21: error: field ‘st_atim’ has incomplete type
+/mnt/CYBRAN/usr/include/arm-linux-gnueabihf/bits/stat.h:120:21: error: field ‘st_mtim’ has incomplete type
+/mnt/CYBRAN/usr/include/arm-linux-gnueabihf/bits/stat.h:121:21: error: field ‘st_ctim’ has incomplete type
+In file included from ./system.h:227:0,
+                 from utils/log.cpp:22:
+linux/PlatformDefs.h:380:3: error: ‘time_t’ does not name a type
+linux/PlatformDefs.h:381:3: error: ‘time_t’ does not name a type
+linux/PlatformDefs.h:382:3: error: ‘time_t’ does not name a type
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:39:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/ctime:62:11: error: ‘::clock_t’ has not been declared
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/ctime:63:11: error: ‘::time_t’ has not been declared
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/ctime:66:11: error: ‘::clock’ has not been declared
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/ctime:67:11: error: ‘::difftime’ has not been declared
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/ctime:68:11: error: ‘::mktime’ has not been declared
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/ctime:69:11: error: ‘::time’ has not been declared
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/ctime:70:11: error: ‘::asctime’ has not been declared
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/ctime:71:11: error: ‘::ctime’ has not been declared
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/ctime:72:11: error: ‘::gmtime’ has not been declared
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/ctime:73:11: error: ‘::localtime’ has not been declared
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/ctime:74:11: error: ‘::strftime’ has not been declared
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:1903:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc: In member function ‘_InIter std::time_get<_CharT, _InIter>::_M_extract_via_format(std::time_get<_CharT, _InIter>::iter_type, std::time_get<_CharT, _InIter>::iter_type, std::ios_base&, std::ios_base::iostate&, tm*, const _CharT*) const’:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc:656:47: error: invalid use of incomplete type ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cwchar:46:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/postypes.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/char_traits.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/string:42,
+                 from utils/log.h:25,
+                 from utils/log.cpp:23:
+/mnt/CYBRAN/usr/include/wchar.h:134:8: error: forward declaration of ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:1903:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc:663:47: error: invalid use of incomplete type ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cwchar:46:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/postypes.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/char_traits.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/string:42,
+                 from utils/log.h:25,
+                 from utils/log.cpp:23:
+/mnt/CYBRAN/usr/include/wchar.h:134:8: error: forward declaration of ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:1903:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc:671:47: error: invalid use of incomplete type ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cwchar:46:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/postypes.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/char_traits.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/string:42,
+                 from utils/log.h:25,
+                 from utils/log.cpp:23:
+/mnt/CYBRAN/usr/include/wchar.h:134:8: error: forward declaration of ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:1903:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc:678:47: error: invalid use of incomplete type ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cwchar:46:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/postypes.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/char_traits.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/string:42,
+                 from utils/log.h:25,
+                 from utils/log.cpp:23:
+/mnt/CYBRAN/usr/include/wchar.h:134:8: error: forward declaration of ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:1903:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc:690:46: error: invalid use of incomplete type ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cwchar:46:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/postypes.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/char_traits.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/string:42,
+                 from utils/log.h:25,
+                 from utils/log.cpp:23:
+/mnt/CYBRAN/usr/include/wchar.h:134:8: error: forward declaration of ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:1903:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc:697:50: error: invalid use of incomplete type ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cwchar:46:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/postypes.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/char_traits.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/string:42,
+                 from utils/log.h:25,
+                 from utils/log.cpp:23:
+/mnt/CYBRAN/usr/include/wchar.h:134:8: error: forward declaration of ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:1903:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc:700:48: error: invalid use of incomplete type ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cwchar:46:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/postypes.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/char_traits.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/string:42,
+                 from utils/log.h:25,
+                 from utils/log.cpp:23:
+/mnt/CYBRAN/usr/include/wchar.h:134:8: error: forward declaration of ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:1903:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc:712:46: error: invalid use of incomplete type ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cwchar:46:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/postypes.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/char_traits.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/string:42,
+                 from utils/log.h:25,
+                 from utils/log.cpp:23:
+/mnt/CYBRAN/usr/include/wchar.h:134:8: error: forward declaration of ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:1903:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc:717:46: error: invalid use of incomplete type ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cwchar:46:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/postypes.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/char_traits.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/string:42,
+                 from utils/log.h:25,
+                 from utils/log.cpp:23:
+/mnt/CYBRAN/usr/include/wchar.h:134:8: error: forward declaration of ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:1903:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc:725:11: error: invalid use of incomplete type ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cwchar:46:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/postypes.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/char_traits.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/string:42,
+                 from utils/log.h:25,
+                 from utils/log.cpp:23:
+/mnt/CYBRAN/usr/include/wchar.h:134:8: error: forward declaration of ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:1903:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc:729:46: error: invalid use of incomplete type ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cwchar:46:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/postypes.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/char_traits.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/string:42,
+                 from utils/log.h:25,
+                 from utils/log.cpp:23:
+/mnt/CYBRAN/usr/include/wchar.h:134:8: error: forward declaration of ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:1903:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc:749:46: error: invalid use of incomplete type ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cwchar:46:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/postypes.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/char_traits.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/string:42,
+                 from utils/log.h:25,
+                 from utils/log.cpp:23:
+/mnt/CYBRAN/usr/include/wchar.h:134:8: error: forward declaration of ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:1903:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc:793:11: error: invalid use of incomplete type ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cwchar:46:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/postypes.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/char_traits.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/string:42,
+                 from utils/log.h:25,
+                 from utils/log.cpp:23:
+/mnt/CYBRAN/usr/include/wchar.h:134:8: error: forward declaration of ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:1903:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc: In member function ‘virtual _InIter std::time_get<_CharT, _InIter>::do_get_weekday(std::time_get<_CharT, _InIter>::iter_type, std::time_get<_CharT, _InIter>::iter_type, std::ios_base&, std::ios_base::iostate&, tm*) const’:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc:1080:6: error: invalid use of incomplete type ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cwchar:46:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/postypes.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/char_traits.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/string:42,
+                 from utils/log.h:25,
+                 from utils/log.cpp:23:
+/mnt/CYBRAN/usr/include/wchar.h:134:8: error: forward declaration of ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:1903:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc: In member function ‘virtual _InIter std::time_get<_CharT, _InIter>::do_get_monthname(std::time_get<_CharT, _InIter>::iter_type, std::time_get<_CharT, _InIter>::iter_type, std::ios_base&, std::ios_base::iostate&, tm*) const’:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc:1108:6: error: invalid use of incomplete type ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cwchar:46:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/postypes.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/char_traits.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/string:42,
+                 from utils/log.h:25,
+                 from utils/log.cpp:23:
+/mnt/CYBRAN/usr/include/wchar.h:134:8: error: forward declaration of ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.h:1903:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/locale:43,
+                 from ./utils/StdString.h:670,
+                 from utils/log.cpp:26:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc: In member function ‘virtual _InIter std::time_get<_CharT, _InIter>::do_get_year(std::time_get<_CharT, _InIter>::iter_type, std::time_get<_CharT, _InIter>::iter_type, std::ios_base&, std::ios_base::iostate&, tm*) const’:
+/mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/locale_facets_nonio.tcc:1131:6: error: invalid use of incomplete type ‘struct tm’
+In file included from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/cwchar:46:0,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/postypes.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/bits/char_traits.h:42,
+                 from /mnt/UEF/tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian/bin/../lib/gcc/arm-linux-gnueabihf/4.7.2/../../../../arm-linux-gnueabihf/include/c++/4.7.2/string:42,
+                 from utils/log.h:25,
+                 from utils/log.cpp:23:
+/mnt/CYBRAN/usr/include/wchar.h:134:8: error: forward declaration of ‘struct tm’
+make: *** [utils/log.o] Error 1

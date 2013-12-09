@@ -1,0 +1,9 @@
+#!/bin/bash
+
+SYSROOT=/mnt/CYBRAN/${RASPI}
+
+export PKG_CONFIG_DIR=
+export PKG_CONFIG_LIBDIR=${SYSROOT}/usr/lib/pkgconfig:${SYSROOT}/usr/share/pkgconfig:${SYSROOT}/usr/lib/arm-linux-gnueabihf/pkgconfig:${SYSROOT}/usr/local/lib/pkgconfig:${SYSROOT}/usr/share/pkgconfig:${SYSROOT}
+export PKG_CONFIG_SYSROOT_DIR=${SYSROOT}
+
+exec pkg-config "$@"
