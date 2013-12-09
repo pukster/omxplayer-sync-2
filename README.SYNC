@@ -1,26 +1,61 @@
-I embarked upon modifying the omxplayer source code when I realized that the one thing I actually wanted, synchronized playing, was missing, and it was near impossible to recreate without altering the source code. Git user Turing Machine attempted to do this via a Python script but it was crude and unreliable. I quickly realized that installing this program was a task in and of itself. Therefore, I have included more detailed instructions here than most advanced programmers are used to.
+I embarked upon modifying the omxplayer source code when I realized that
+the one thing I actually wanted, synchronized playing, was missing, and
+it was near impossible to recreate without altering the source code. Git
+user Turing Machine attempted to do this via a Python script but it was
+crude and unreliable. I quickly realized that installing this program
+was a task in and of itself. Therefore, I have included more detailed
+instructions here than most advanced programmers are used to.
 
-Cross compilers are compilers on one machine (lets call it the STAGING machine) which install programs which are meant to be run on other machines (lets call those the TARGET machines). We need cross compilers because installing omxplayer on the raspi is a PITA. Installing a cross compiler, sadly, is not trivial, and once installed, is arguably harder to set up. Luckily, if you follow these instructions exactly, you should be fine.
+Cross compilers are compilers on one machine (lets call it the STAGING
+machine) which install programs which are meant to be run on other
+machines (lets call those the TARGET machines). We need cross compilers
+because installing omxplayer on the raspi is a PITA. Installing a cross
+compiler, sadly, is not trivial, and once installed, is arguably harder
+to set up. Luckily, if you follow these instructions exactly, you should
+be fine.
 
-Now, before installing it, understand that these cross compilation projects are rather large, and it might be beneficial to have a different partition/mount just for the projects. I bought an HDD and mounted the file structure like so on my MAIN computer (10 points if you can guess what the names mean ;-)
+Now, before installing it, understand that these cross compilation
+projects are rather large, and it might be beneficial to have a
+different partition/mount just for the projects. I bought an HDD and
+mounted the file structure like so on my MAIN computer (10 points if you
+can guess what the names mean ;-)
 
 /mnt/UEF
 /mnt/UEF/tools         -- Cross compiler
-/mnt/UEF/raspi_root    -- Holds raspi HOME files, exported to RASPI(s) and mounted at /home/raspi
+/mnt/UEF/raspi_root    -- Holds raspi HOME files, exported to RASPI(s)
+                          and mounted at /home/raspi
 /mnt/AEON              -- Backup of UEF on machine RASPISERVER
-/mnt/CYBRAN            -- mount point for all raspis and their full directory under /
+/mnt/CYBRAN            -- mount point for all raspis and their full
+                          directory under /
 /mnt/CYBRAN/raspi1     -- mount point for all files of raspi1
 /mnt/CYBRAN/raspi2     -- mount point for all files of raspi2
 /mnt/CYBRAN/raspiN     -- mount point for all files of raspiN
 
-Setting this up I leave to you, but I will refer to this setup when setting up the cross compiler. Now download this cross compiler (https://github.com/raspberrypi/tools) by issuing the following commands:
+Setting this up I leave to you, but I will refer to this setup when
+setting up the cross compiler. Now download this cross compiler
+(https://github.com/raspberrypi/tools) by issuing the following
+commands:
 
 cd /mnt/UEF
 wget https://github.com/raspberrypi/tools/archive/master.zip
 unzip master.zip
 
-make sure you have it under the directory /mnt/UEF/tools. If it's /mnt/UEF/master, fix it. Last thing you need to do is mount you raspi root path ('/') somewhere on /mnt/CYBRAN and update the makeOMXSync.sh to reflect this. Therefore, if you have 6 raspis and they are all numbered raspi1-raspi6, you should have them mounted at /mnt/CYBRAN/raspi1-/mnt/CYBRAN/raspi6 and then instruct makeOMXSync.sh to reflect this. Finally, make sure you have keyless SSH set up for all the raspis, and update your .ssh/config file as well as your /etc/hosts file to make raspi1 an alias for the first raspi, and so on for the other raspis.
+make sure you have it under the directory /mnt/UEF/tools. If it's
+/mnt/UEF/master, fix it. Last thing you need to do is mount you
+raspi root path ('/') somewhere on /mnt/CYBRAN and update the
+makeOMXSync.sh to reflect this. Therefore, if you have 6 raspis and
+they are all numbered raspi1-raspi6, you should have them mounted at
+/mnt/CYBRAN/raspi1-/mnt/CYBRAN/raspi6 and then instruct makeOMXSync.sh
+to reflect this. Finally, make sure you have keyless SSH set up for all
+the raspis, and update your .ssh/config file as well as your /etc/hosts
+file to make raspi1 an alias for the first raspi, and so on for the
+other raspis.
 
-If you follow these instructions exactly, it should work fine. If not, then there should be enough information in the above to tailor it to your needs. You just might lose a few nights of sleep trying to debug the Makefile, Makefile.include and Makefile.ffmpeg files.
+If you follow these instructions exactly, it should work fine. If not,
+then there should be enough information in the above to tailor it to
+your needs. You just might lose a few nights of sleep trying to debug
+the Makefile, Makefile.include and Makefile.ffmpeg files.
 
-Final word of disclaimer, I am NOT an advanced C/C++ programmer. I appologize for this, and ask that better programmers go through and fix the code for me.
+Final word of disclaimer, I am NOT an advanced C/C++ programmer. I
+appologize for this, and ask that better programmers go through and fix
+the code for me.
